@@ -5,3 +5,8 @@
 2. Click `Hochladen & installieren`
    
 3. Select, upload and install `./qSort-5.x.zip`
+
+
+# "Build" instructions
+
+Pack the folders `./survey` and `./views` into one zip file.
