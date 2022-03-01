@@ -42,6 +42,7 @@
         <js>
             <filename>scripts/qsort.js</filename>
             <filename>scripts/jquery-ui/jquery-ui.min.js</filename>
+            <filename>scripts/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js</filename>
         </js>
     </files>
 
