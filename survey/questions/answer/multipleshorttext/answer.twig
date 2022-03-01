@@ -1,0 +1,33 @@
+{#
+/**
+ * Q sorting sub-question list
+ *
+ * @var $$sRows			: the rows, generated with the views rows/answer_row*.php
+ *
+ * @var $coreClass		: the LimeSurvey list classes
+ * @var $basename		: the SGQ of the question
+ 
+ **** Additional attributes:
+ * @var question_template_attribute.area_names	: comma-separated list of the names for the q sorting areas
+ * @var question_template_attribute.area_limits	: comma-separated list of the limits for the q sorting areas
+ */
+#}
+
+<!-- Q Sort Interface -->
+{% set qSortView = './views/qsort.twig' %}
+{{ include(qSortView) }}
+<!-- End of Q Sort Interface -->
+    
+<!-- Sub-question list -->
+<ul class="{{coreClass}} list-unstyled q-sort-list" role="group" aria-labelledby="ls-question-text-{{basename}}">
+    {{sRows}}
+    {% if aRows is empty %}
+        {% include 'survey/questions/answer/multipleshorttext/empty.twig' %}
+    {% else %}
+        {% for aRow in aRows %}
+            {% set rowTemplate = (aRow.textarea ? 'survey/questions/answer/multipleshorttext/rows/answer_row_textarea.twig' : 'survey/questions/answer/multipleshorttext/rows/answer_row_inputtext.twig') %}
+            {% include rowTemplate with aRow only %}
+        {% endfor %}
+    {% endif %}
+</ul>
+<!-- End of sub-question list -->
